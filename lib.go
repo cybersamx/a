@@ -1,7 +1,20 @@
-package go_mod_template
+package a
 
-// Put package functions here
+import (
+	"math"
 
-func Foo() {
-	// NOP
+	"github.com/cybersamx/c"
+)
+
+func StdDev(sample []float64) float64 {
+	sum := 0.0
+	mean := c.Mean(sample)
+
+	for _, v := range sample {
+		sum += math.Pow(v-mean, 2)
+	}
+
+	stddev := math.Sqrt(sum / c.Count(sample))
+
+	return stddev
 }
